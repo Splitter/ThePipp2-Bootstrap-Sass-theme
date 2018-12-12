@@ -1,0 +1,282 @@
+// Some defaults to override Bootstrap
+body {
+
+    padding: 117px 0 0 0; //push content below fixed navbar on small screens
+    background: $white;
+    color: $primary;
+    margin: 0;
+    overflow: scroll;
+    height: 100vh;
+    overflow-x:hidden;
+    //Body is shifted to right of Sidebar on larger screens
+    @media #{$large-screen} {
+        padding-top: 0; //move content back up
+        margin-left: $sidebar-width;
+    }
+}
+
+//Inner wrapper around main page content
+.container-fluid {
+    padding: 0;
+    width: 100%;
+}
+
+.row {
+    padding: 0 ($grid-gutter-width/2);
+    
+    @media #{$medium-screen} {
+        padding: 0 $grid-gutter-width;
+    }
+}
+
+
+//Navbar
+//default setup for small screens
+.navbar-fixed-left {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    background: $primary;
+
+    //inner wrapper around sidebar/navbar content
+    .container {
+        width: 100%;
+    }
+
+    //Logo and hamburger button
+    .navbar-header {
+        width: 100%;
+
+        //logo
+        .navbar-brand {
+            img {
+                height: 90px;
+                opacity: 0.5;
+                margin-left: -30px;
+            }
+        }
+
+        //hamburger button
+        .navbar-toggler {
+            margin-top: 30px;
+        }
+
+        //small text subheading
+        .navbar-header-sub {
+            @include center-horizontal();
+            width: 40%;
+            text-align: center;
+            border-top: 1px solid rgba($white, .3);
+            opacity: 0.4;
+            color: $white;
+            font-size: 0.6em;
+            padding-top: 0.7em;
+        }
+    }
+
+    //Navigation Links
+    .navbar-collapse {
+        .navbar-nav {
+            text-align: center;
+
+            li {
+                width: 100%;
+
+                #{$links} {
+                    padding: 10px;
+                    display: inline-block;
+                    border: 0;
+                    text-decoration: none;
+                    opacity: 0.5;
+                    font-family: 'Wire One', sans-serif;
+                    font-size: 1.8em;
+                    color: $white;
+                    border-top: 1px solid $light-grey;
+                    position: relative;
+                    width: 100%;
+                    transition: all .5s;
+                    letter-spacing: 0.05em;
+                }
+
+                #{$links-hover} {
+                    color: $light-blue;
+                    text-decoration: none;
+                }
+
+                .dropdown-menu {
+                    top: 0;
+                    left: 100%;
+                    right: auto;
+                    border-radius: 0 3px 3px 0;
+                }
+            }
+        }
+    }
+    // Diagnal lines at bottom of Sidebar
+    .lines {
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        height: 35%;
+        width: 100%;
+        bottom: 0%;
+
+        ul {
+            @include list-unstyled();
+            margin: 0;
+            padding: 0;
+            margin-top: 50%;
+
+            li {
+                display: block;
+                width: 300%;
+                margin-left: -50%;
+                background: $white;
+                margin-bottom: 1em;
+                transform: rotate(160deg);
+                opacity: 0.05;
+                height: 55px;
+
+                &:nth-child(3),
+                &:nth-child(1) {
+                    opacity: 0.02;
+                    height: 45px;
+                }
+            }
+        }
+    }
+    //Sidebar setup
+    //Navbar is a sidebar on large screens and above
+    @media #{$large-screen} {
+        width: $sidebar-width;
+        height: 100vh;
+        right: auto !important;
+        left: 0 !important;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        min-height: 750px !important;
+
+        //inner wrapper around sidebar/navbar content
+        .container {
+            position: relative;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        //Logo and hamburger button
+        .navbar-header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            .navbar-brand {
+                width: inherit;
+                margin-top: 1em;
+
+                img {
+                    width: 90%;
+                    height: auto;
+                    opacity: 0.5;
+                    @include center-horizontal();
+                    margin-left: 0;
+                }
+            }
+        }
+
+        // Actual navigation links
+        .navbar-collapse {
+            background: none;
+            padding-right: 0;
+            padding-left: 0;
+            margin: 0;
+            max-height: none;
+            width: inherit;
+
+            .navbar-nav {
+                float: none !important;
+                width: 100%;
+                @include list-unstyled();
+
+                li {
+                    #{$links} {
+                        border: 0;
+                        margin-top: -1px;
+                    }
+
+                    @include border-grow-topbottom($white, $secondary, 0.5s, 40%);
+                }
+            }
+        }
+
+    }
+}
+
+//Footer 
+//Is placed at base of sidebar on larger screens
+footer.container-fluid {
+    background: $primary;
+
+    @media #{$large-screen} {
+        background: none;
+        position: absolute;
+        left: -50%;
+        bottom: 0;
+        z-index: 2;
+        width: $sidebar-width;
+    }
+
+    .footer-wrap {
+        position: relative;
+        width: 70%;
+        height: 160px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        border-top: 1px solid rgba($white, .176);
+        opacity: 0.5;
+        padding-top: 1.5em;
+        font-family: 'Wire One', sans-serif;
+        font-size: 0.9em;
+        color: $white;
+        letter-spacing: 0.1em;
+
+        #{$links} {
+            border: 0;
+            text-decoration: none;
+            color: $white;
+            width: 100%;
+            transition: all .5s;
+        }
+
+        #{$links-hover} {
+            color: $secondary;
+            text-decoration: none;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 1em;
+        }
+
+        .footer-icons {
+            font-size: 0.7em !important;
+
+            #{$links} {
+                padding: 0 0.5em;
+            }
+        }
+
+        @media #{$large-screen} {
+            position: fixed;
+            bottom: -17px;
+            z-index: 1;
+            width: $sidebar-width;
+            left: 0;
+            transform: translateX(0%);
+        }
+    }
+}

@@ -1,0 +1,138 @@
+
+//  Wire One font is much smaller then typical fonts so headings need to be larger then Bootstrap defaults
+%headings {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    position: relative;
+}
+
+h1 {
+    @extend %headings;
+    font-size: $h1-font-size;
+}
+
+h2 {
+    @extend %headings;
+    font-size: $h2-font-size;
+}
+
+h3 {
+    @extend %headings;
+    font-size: $h3-font-size;
+}
+
+h4 {
+    @extend %headings;
+    font-size: $h4-font-size;
+}
+
+h5 {
+    @extend %headings;
+    font-size: $h5-font-size;
+}
+
+h6 {
+    @extend %headings;
+    font-size: $h6-font-size;
+}
+
+
+//default paragraph override
+p{
+    font-size:0.95;
+    @media #{$Xtreme-screen} {
+        font-size:0.9vw;        
+    }
+}
+
+//generic bg to make positioning stand out(remember to remove)
+.test{
+    background:red;
+}
+
+// Page title and subtitle stylings
+.page-title,
+.page-subheading{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:3vw;
+}
+
+.page-subheading{
+    margin-top:1em;
+    font-family: $headings-font-family;
+    color:$light-grey;
+    margin-bottom:3vw;
+    p{
+        font-size:1.2em;
+        @media #{$large-screen} {
+            font-size:1.7vw;       
+        }
+    }
+    p.light{
+        color:$white;
+    }
+}
+
+.page-title h2,.page-title h3
+{
+    font-weight:800;
+    margin-bottom:0;
+}
+
+.page-title h2
+{
+    color:$secondary;
+    font-size:4em;
+    position:absolute;
+    opacity:0.2;
+    z-index:-1;
+    letter-spacing:-0.2vw;
+    z-index:1;
+    @media #{$large-screen} {
+        font-size:5vw;        
+    }
+}
+.page-title h2.light 
+{
+    color:$white;
+    opacity:0.15;
+}
+.page-title h3
+{
+    color:$primary;
+    font-size:2em;
+    margin-top:0.5vw;
+    letter-spacing:-0.1vw;
+    z-index:1;
+    @media #{$large-screen} {
+        font-size:2.5vw;        
+    }
+}
+
+
+.submit-btn{
+    position: relative;
+    display: inline-block;
+    width:140px;
+    font-size:1em;
+    color:$white;
+    border:1px solid $light-grey; 
+    background:$primary;
+    text-shadow: none;
+    text-align: center;
+    padding:0.75em;
+    margin:2em 0.25em 0;
+    text-decoration: none;
+    border-radius: 20px 0 20px 0;
+    font-family: $headings-font-family;
+    &:hover{
+        background:$secondary;
+        color: $black;
+        border-color: $primary;
+    }
+
+}

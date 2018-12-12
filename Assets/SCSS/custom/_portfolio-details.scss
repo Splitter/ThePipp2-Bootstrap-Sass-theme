@@ -1,0 +1,66 @@
+.portfolio-row{
+    margin-top:10vh;
+}
+
+.port-details-content {
+    p{
+        background: $secondary;
+        border-radius: 2vw 0 2vw 0;
+        padding:1.5vw 2vw;
+        color : $white;
+        font-size:1.2em;
+    }
+    h4{
+        margin-left: 2vw;
+        margin-bottom:1em;
+        margin-top:7vw;
+    }
+}
+
+.port-details-list{
+    margin-top:2vw;
+    ul{
+        list-style: none;
+        padding:0;
+        margin:0;
+        li{
+            margin: 1vh 2vw;
+            
+            span{
+                font-weight: bold;
+                color: $light-grey;
+            }
+            
+            h6{
+                font-size:1.6em;
+            }
+            
+            #{$links} {
+                position: relative;
+                display: inline-block;
+                width:140px;
+                font-size:0.8em;
+                color:$white;
+                border:1px solid $white; 
+                background:rgba($black,0.65);
+                text-shadow: 1px 2px 5px $black;
+                text-align: center;
+                padding:0.75em;
+                margin:2em 0.25em 0;
+                text-decoration: none;
+                border-radius: 1vw 0 1vw 0;
+                font-family: $headings-font-family;
+                
+            }
+            
+            @include border-grow-corner( $white, $primary, 1s, 1px );
+            
+        }
+    }
+    
+}
+
+.port-details-image img {
+    width:100%;
+    margin-top:7vw;
+}

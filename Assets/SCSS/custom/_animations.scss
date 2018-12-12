@@ -1,0 +1,161 @@
+
+
+// TOP/BOTTOM BORDER ANIMATION ON LINKS
+// -- growing top/bottom offset borders
+@mixin border-grow-topbottom($color, $hover-color, $speed, $line-width) {
+    a:before,
+    a:after {
+        content: "";
+        height: 2px;
+        width: 4px;
+        opacity: 0.2;
+        background-color: $color;
+        position: absolute;
+        transition: all $speed;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 4px;
+    }
+    a:before {
+        top: 0;
+    }
+    a:after {
+        bottom: 0;
+    }
+    a:hover:before {
+        background-color: $hover-color;
+        height: 1px;
+        width: $line-width;
+        opacity: 0.7;
+        transform: translateX(-60%);
+    }
+    a:hover:after {
+        background-color: $hover-color;
+        height: 1px;
+        width: $line-width;
+        opacity: 0.7;
+        transform: translateX(-40%);
+    }
+}
+
+// GROWING BORDER ANIMATION FOR LINKS
+// -- fading background and growing borders from corners
+@mixin border-grow-corner( $border-color, $background-color, $speed, $line-width){
+    #{$links}{        
+        transition: $speed all ease-out; 
+    }
+    a::before, a::after {
+        content: "";
+        width: 100%;
+        height:100%;
+        z-index: 1;
+        position: absolute;
+        top:0;
+        left:0;
+        box-sizing: border-box;
+        transform: scale(0);
+        transition: calc( #{$speed} / 2 );
+        transition-delay: calc( #{$speed} / 2 );
+        border-radius: 1vw 0 1vw 0;
+    }
+    a::before {
+        border-bottom: $line-width solid $border-color;
+        border-right: $line-width solid $border-color;
+        transform-origin: bottom right;
+    }
+    a::after {
+        border-top: $line-width solid $border-color;
+        border-left: $line-width solid $border-color;
+        transform-origin: top left;
+    }
+    #{$links-hover}::after, #{$links-hover}::before {
+        transform: scale(1);
+    }
+    #{$links-hover}{
+        background: $background-color;
+        border-color:rgba($black,0);
+    }
+}
+
+// ANIMATE OBJECTS IN CIRCULAR MOTION
+@mixin roundPath($animationName, $distance){
+    @keyframes $animationName {
+        from {
+            transform: rotate(0deg) translateX($distance) rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg) translateX($distance) rotate(-360deg);
+        }
+    }    
+}
+
+
+//Animations
+@keyframes lines-move {
+  0% {
+    transform: translateY(0px) rotate(160deg);
+  }
+  25% {
+    transform: translateY(20px) rotate(160deg);
+  }  
+  50% {
+    transform: translateY(50px) rotate(160deg);
+    opacity:0.01;
+  }
+  75% {
+    transform: translateY(20px) rotate(160deg);
+  }  
+  100% {
+    transform: translateY(0px) rotate(160deg);
+  }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg)
+    }
+
+    10% {
+        transform: translate(-3px, 0px) rotate(2deg)
+    }
+
+    20% {
+        transform: translate(-1px, -1px) rotate(0deg)
+    }
+
+    30% {
+        transform: translate(0px, 2px) rotate(-1deg)
+    }
+
+    40% {
+        transform: translate(-1px, 0px) rotate(-3deg)
+    }
+
+    50% {
+        transform: translate(-1px, -1px) rotate(1deg)
+    }
+
+    60% {
+        transform: translate(0px, 0px) rotate(3deg)
+    }
+
+    70% {
+        transform: translate(1px, 1px) rotate(1deg)
+    }
+
+    80% {
+        transform: translate(3px, 0px) rotate(0deg)
+    }
+
+    90% {
+        transform: translate(-1px, -3px) rotate(-1deg)
+    }
+
+    100% {
+        transform: translate(1px, 1px) rotate(-3deg)
+    }
+}
+
+
+
+

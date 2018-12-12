@@ -1,0 +1,44 @@
+//Animation Mixins are placed in ./custom/_animations.scss
+
+
+//CENTERING
+@mixin center-vertical() {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin center-horizontal() {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+//DEFAULT/BASE STYLING FOR A HORIZONTAL NAVBAR
+@mixin navbar-links-horizontal($height, $padding, $margin) {
+    height: $height;
+    ul {
+        margin: 0 0 0 0;
+        margin-left: 0;
+        padding-left: 0;
+        text-indent: 0;
+        list-style: none;
+        display: block;
+        border: 0;
+
+        li {
+            display: inline-block;
+            margin-top: 0;
+
+            a {
+                text-decoration: none;
+                display: block;
+                padding: $padding;
+                margin: $margin;
+            }
+        }
+    }
+}
+
+
+
+

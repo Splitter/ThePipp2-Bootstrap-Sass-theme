@@ -1,0 +1,37 @@
+//About section wrapper
+.about{
+    background:$white;
+    padding:7vh 0 10vh;
+    //About image wrapper 
+    .about-silo{
+        width:100%;
+        border-radius: 8vw 0 8vw 0;
+        background:rgba($secondary,0.4);
+        padding:0;
+        overflow: hidden;
+        margin-bottom:3vw;
+        @media #{$medium-screen} {
+            margin-bottom:0;
+        }
+    }
+    //About image
+    .about-silo img{
+        width:35%;
+        position:relative;
+        left:100%;
+        transform: translateX(-100%);
+        @media #{$small-screen} {
+            width:60%;
+        }
+        @media #{$medium-screen} {
+            width:100%;
+        }
+    }
+    .row{
+        padding-bottom:1vw;
+    }
+
+}
+
+
+
